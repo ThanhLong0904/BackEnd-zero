@@ -1,16 +1,18 @@
 const express = require('express') //commonjs
 const router = express.Router()
+const { getHomepage, getABC, GetAlonglee } = require('../controllers/homeController')
 
-router.get('/', (req, res) => {
-    res.send('Hello alongleene')
-})
 
-router.get('/alonglee', (req, res) => {
-    res.render('sample.ejs')
-})
+// router.Method('/route', handler) mô hình định nghĩa route
 
-router.get('/alonglee1', (req, res) => {
-    res.render('sample1.ejs')
-})
+//ví dụ sơ khai.
+// router.get('/', (req, res) => {
+//     //xử lý data, viết logic => controller
+//     res.send('Hello alongleene')
+// }) 
+
+router.get('/', getHomepage)
+router.get('/abc', getABC)
+router.get('/alonglee', GetAlonglee)
 
 module.exports = router
